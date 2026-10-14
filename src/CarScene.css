@@ -1,0 +1,75 @@
+.scene-shell {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 60% 50%, rgba(30, 79, 119, 0.16), transparent 43%),
+    #06090d;
+  pointer-events: none;
+}
+
+.scene-shell canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 53% 48%, transparent 35%, rgba(1, 3, 6, 0.48) 100%),
+    linear-gradient(0deg, rgba(2, 4, 7, 0.47), transparent 22%, transparent 76%, rgba(2, 4, 7, 0.19));
+  pointer-events: none;
+}
+
+.model-label {
+  position: absolute;
+  z-index: 1;
+  top: 98px;
+  left: clamp(25px, 5vw, 78px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border: 1px solid rgba(187, 218, 243, 0.14);
+  color: #b2c1ce;
+  background: rgba(7, 12, 18, 0.6);
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  backdrop-filter: blur(9px);
+  pointer-events: none;
+}
+
+.model-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #76c8ff;
+  box-shadow: 0 0 10px rgba(91, 183, 255, 0.75);
+}
+
+.model-status-dot.is-loaded {
+  background: #8fe5c0;
+  box-shadow: 0 0 10px rgba(97, 226, 172, 0.65);
+}
+
+.model-label.is-error {
+  border-color: rgba(255, 126, 126, 0.45);
+  color: #ffb0b0;
+}
+
+.model-status-dot.is-error {
+  background: #ff7777;
+  box-shadow: 0 0 10px rgba(255, 100, 100, 0.65);
+}
+
+@media (max-width: 600px) {
+  .model-label {
+    top: 82px;
+    left: 20px;
+    padding: 8px 10px;
+    font-size: 6px;
+  }
+}
